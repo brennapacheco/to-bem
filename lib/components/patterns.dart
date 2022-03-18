@@ -41,7 +41,7 @@ Widget buildFeelingsInput(
   BuildContext context,
 ) {
   return Container(
-      margin: const EdgeInsets.only(left: 16, right: 16, top: 460, bottom: 50),
+      margin: const EdgeInsets.only(left: 16, right: 16),
       height: 70,
       width: double.maxFinite,
       decoration: BoxDecoration(

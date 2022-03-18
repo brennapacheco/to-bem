@@ -36,16 +36,17 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Stack(
+      body: Column(
         children: [
           Container(
+            color: const Color(0xFFF8F8FB),
             margin: const EdgeInsets.only(left: 16, right: 16, top: 30),
             child: buildWelcomeText(),
           ),
-          Expanded(
-            child: GridView(
+          Stack(children: [
+            GridView(
               shrinkWrap: true,
-              padding: const EdgeInsets.only(left: 16, top: 100, right: 16),
+              padding: const EdgeInsets.only(left: 16, top: 20, right: 16),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 150,
                 childAspectRatio: 2 / 2,
@@ -56,14 +57,21 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                 return ActivityItem(activity);
               }).toList(),
             ),
-          ),
-          buildFeelingsInput(_feelingsTextController, context),
-          Container(
-              margin: const EdgeInsets.only(left: 160, right: 16, top: 550),
-              child: ElevatedButton(
-                  onPressed: () {}, //TODO: armazenar tarefas + ativar confetes
-                  child: const Text(
-                      'salvar'))), 
+            Container(
+                //height: 150,
+                color: const Color(0xFFF8F8FB),
+                margin: const EdgeInsets.only(top: 440),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                        //TODO: transformar em floating action button com location location
+                        onPressed:
+                            () {}, //TODO: armazenar tarefas + ativar confetes
+                        child: const Text('salvar')),
+                    buildFeelingsInput(_feelingsTextController, context),
+                  ],
+                )),
+          ]),
         ],
       ),
       bottomNavigationBar: buildBottomNavBar(),
