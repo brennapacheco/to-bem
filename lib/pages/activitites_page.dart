@@ -58,21 +58,25 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
               }).toList(),
             ),
             Container(
-                //height: 150,
                 color: const Color(0xFFF8F8FB),
-                margin: const EdgeInsets.only(top: 440),
+                margin: const EdgeInsets.only(top: 490),
                 child: Column(
                   children: [
-                    ElevatedButton(
-                        //TODO: transformar em floating action button com location location
-                        onPressed:
-                            () {}, //TODO: armazenar tarefas + ativar confetes
-                        child: const Text('salvar')),
                     buildFeelingsInput(_feelingsTextController, context),
                   ],
                 )),
           ]),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: const Color(0xFFAAC9CE),
+        label: const Text('Salvar'),
+        icon: const Icon(
+          Icons.done_rounded,
+          color: Color(0xFFF8F8FB),
+        ),
+        onPressed: () {}, //TODO: armazena atividades feitas + chama confetes
       ),
       bottomNavigationBar: buildBottomNavBar(),
     );
