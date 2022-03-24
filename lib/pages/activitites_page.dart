@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:to_bem/components/patterns.dart';
 import '../components/activity_item.dart';
@@ -23,7 +21,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     super.initState();
     _feelingsTextController = TextEditingController();
     _controllerBottomCenter =
-        ConfettiController(duration: const Duration(seconds: 5));
+        ConfettiController(duration: const Duration(seconds: 3));
   }
 
   @override
@@ -46,62 +44,65 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
       appBar: buildAppBar(),
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.only(left: 16, right: 16, top: 30),
-            child: buildWelcomeText(),
-          ),
-          Stack(children: [
-            GridView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(left: 16, top: 20, right: 16),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 150,
-                childAspectRatio: 2 / 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+          title('Me conta o que você fez hoje :)', 'Bom te ver, @user!'),
+          Stack(
+            children: [
+              Expanded(
+                child: GridView(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(left: 16, top: 20, right: 16),
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 150,
+                    childAspectRatio: 2 / 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  children: ACTIVITIES.map((activity) {
+                    return ActivityItem(activity);
+                  }).toList(),
+                ),
               ),
-              children: ACTIVITIES.map((activity) {
-                return ActivityItem(activity);
-              }).toList(),
-            ),
-            Container(
-                height: 100,
-                color: const Color(0xFFF8F8FB),
-                margin: const EdgeInsets.only(top: 430),
-                child: Column(
-                  children: [
-                    buildFeelingsInput(_feelingsTextController, context),
-                    Align(
-                      alignment: Alignment.center,
-                      child: ConfettiWidget(
-                        confettiController: _controllerBottomCenter,
-                        blastDirection: -pi / 2,
-                        emissionFrequency: 0.01,
-                        numberOfParticles: 20,
-                        maxBlastForce: 100,
-                        minBlastForce: 80,
-                        gravity: 0.3,
-                      ),
-                    ),
-                  ],
-                )),
-          ]),
+              Align(
+                alignment: Alignment.topCenter,
+                child: ConfettiWidget(
+                  confettiController: _controllerBottomCenter,
+                  blastDirectionality: BlastDirectionality.explosive,
+                  emissionFrequency: 0.01,
+                  numberOfParticles: 20,
+                  maxBlastForce: 20,
+                  minBlastForce: 10,
+                  gravity: 0.5,
+                ),
+              ),
+              Container(
+                  padding: const EdgeInsets.only(top: 440),
+                  child: Column(
+                    children: [
+                      buildFeelingsInput(_feelingsTextController, context),
+                    ],
+                  )),
+            ],
+          ),
         ],
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: const Color(0xFFA6A9E8),
-        label: const Text('Salvar'),
-        icon: const Icon(
-          Icons.done_rounded,
-          color: Color(0xFFF8F8FB),
-        ),
-        onPressed: () {
-          _controllerBottomCenter.play();
-        }, //TODO: armazena atividades feitas
-      ),
+      floatingActionButton: buildFloatingBtExt(),
       bottomNavigationBar: buildBottomNavBar(),
+    );
+  }
+
+  FloatingActionButton buildFloatingBtExt() {
+    return FloatingActionButton.extended(
+      backgroundColor: const Color(0xFFA6A9E8),
+      label: const Text('Salvar'),
+      icon: const Icon(
+        Icons.done_rounded,
+        color: Color(0xFFF8F8FB),
+      ),
+      onPressed: () {
+        _controllerBottomCenter.play();
+      }, //TODO: armazenar atividades feitas
     );
   }
 

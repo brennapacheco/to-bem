@@ -99,29 +99,34 @@ Widget buildFeelingsInput(
           }));
 }
 
-buildWelcomeText() {
-  return Column(
-    children: [
-      Row(
-        children: const [
-          Text(
-            'Bom te ver, @user!', //TODO: informar o usuario
-            style: TextStyle(fontSize: 14.0, color: Color(0xFF292643)),
-          ),
-        ],
-      ),
-      const SizedBox(height: 8),
-      Row(
-        children: const [
-          Text(
-            'Me conta o que você fez hoje :)',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-                color: Color(0xFF292643)),
-          ),
-        ],
-      ),
-    ],
+Widget title(String title, String subtitle) {
+  return Container(
+    margin: const EdgeInsets.only(left: 16, top: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text(subtitle,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF292643),
+                )),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF292643),
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }
