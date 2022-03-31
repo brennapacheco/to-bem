@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-buildAppBar() {
+AppBar buildAppBar() {
   return AppBar(
       backgroundColor: const Color(0xFFF8F8FB),
       leading: Image.asset('assets/images/profile.jpg'),
@@ -12,7 +12,7 @@ buildAppBar() {
           iconSize: 40,
           onPressed: () {}, //TODO: chamar drawer
         ),
-      ]);
+      ],);
 }
 
 Widget buildStandardInput(
@@ -61,21 +61,20 @@ Widget buildFeelingsInput(
                 'Se não estiver tudo bem, gostaria de compartilhar sobre o que te afetou?',
             hintMaxLines: 2,
             hintStyle:
-                const TextStyle(color: Color(0xFF576B9E), fontSize: 12.0),
+                const TextStyle(color: Color(0xFF576B9E), fontSize: 12),
             filled: true,
             fillColor: const Color(0xFFF8F8FB),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
                 color: Color(0xFFF8F8FB),
-                width: 1.0,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
                 color: Color(0xFF576B9E),
-                width: 2.0,
+                width: 2,
               ),
             ),
           ),
@@ -96,7 +95,7 @@ Widget buildFeelingsInput(
                 );
               },
             );
-          }));
+          },),);
 }
 
 Widget title(String title, String subtitle) {
@@ -111,7 +110,7 @@ Widget title(String title, String subtitle) {
                 style: const TextStyle(
                   fontSize: 14,
                   color: Color(0xFF292643),
-                )),
+                ),),
           ],
         ),
         const SizedBox(height: 8),
@@ -122,7 +121,7 @@ Widget title(String title, String subtitle) {
               style: const TextStyle(
                   fontSize: 18,
                   color: Color(0xFF292643),
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,),
             ),
           ],
         ),

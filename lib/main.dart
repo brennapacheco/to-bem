@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-
-import 'pages/activitites_page.dart';
-import 'pages/login_page.dart';
-import 'pages/sign_up_page.dart';
+import 'package:flutter/material.dart' hide Router;
+import 'package:to_bem/constants.dart';
+import 'package:to_bem/routers/router.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,15 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      //TODO: Separar rotas em outro arquivo
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => const LoginPage(),
-        '/signup': (context) => const SignUpPage(),
-        '/activities': (context) => const ActivitiesPage(),
-        /* '/addactivities': (context) => const AddActivitiesPage(),
-        '/movies': (context) => const MoviesPage(),  */
-      },
+      onGenerateRoute: Router.generateRoute,
+      initialRoute: loginRoute,
     );
   }
 }
