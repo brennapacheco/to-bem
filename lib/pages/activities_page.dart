@@ -68,11 +68,12 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                 ],
               ),
             ),
-          ],
-        ),
-        /* floatingActionButtonLocation:
+            /* floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: buildFloatingBtExt(); */
+          ],
+        ),
+        /*  */
       ],
     );
   }
