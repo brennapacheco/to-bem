@@ -100,7 +100,7 @@ class LoginPage extends StatelessWidget {
   }
 
   onPressedLogIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, '/activities');
+    Navigator.pushReplacementNamed(context, '/home');
   }
 
   onPressedSignUp(BuildContext context) {

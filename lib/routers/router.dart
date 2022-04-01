@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_bem/constants.dart';
-import 'package:to_bem/pages/activitites_page.dart';
+import 'package:to_bem/pages/activities_page.dart';
+import 'package:to_bem/pages/home_page.dart';
 import 'package:to_bem/pages/login_page.dart';
 import 'package:to_bem/pages/movies_page.dart';
 import 'package:to_bem/pages/retro_page.dart';
@@ -9,6 +10,8 @@ import 'package:to_bem/pages/sign_up_page.dart';
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case homeRoute:
+        return MaterialPageRoute(builder: (_) => const HomePage());
       case loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case signUpRoute:
@@ -22,10 +25,12 @@ class Router {
 
       default:
         return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                      child: Text('No route defined for ${settings.name}'),),
-                ),);
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${settings.name}'),
+            ),
+          ),
+        );
     }
   }
 }
