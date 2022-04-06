@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:to_bem/models/activity.dart';
+import 'package:to_bem/data/models/activities_model.dart';
 
 class ActivityItem extends StatelessWidget {
   const ActivityItem(this.activity, {Key? key}) : super(key: key);
 
-  final Activity activity;
+  final ActivitiesModel activity;
 
   @override
   Widget build(BuildContext context) {

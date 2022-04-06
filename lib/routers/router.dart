@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_bem/constants.dart';
+import 'package:to_bem/base/constants.dart';
 import 'package:to_bem/pages/activities_page.dart';
 import 'package:to_bem/pages/home_page.dart';
 import 'package:to_bem/pages/login_page.dart';
